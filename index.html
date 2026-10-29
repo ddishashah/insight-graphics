@@ -298,8 +298,8 @@ footer .logo-mark{height:22px}
 .statement .mark p{font-size:clamp(24px,1.95vw,28px);line-height:1.7;font-weight:500;letter-spacing:-.01em}
 .statement .rule+.reveal{margin-top:40px}
 .statement .reveal{font-size:clamp(18px,1.5vw,21px);line-height:1.43;font-weight:500;letter-spacing:-.01em;max-width:576px;margin:56px auto 0}
-.reveal .w{color:var(--fg-3);opacity:.6;transition:color .35s ease,opacity .35s ease}
-.reveal .w.lit{color:var(--fg);opacity:1}
+[data-reveal] .w{color:var(--fg-3);opacity:.6;transition:color .35s ease,opacity .35s ease}
+[data-reveal] .w.lit{color:var(--fg);opacity:1}
 .hl{color:var(--fg-3)}
 
 /* ---------- about ---------- */
@@ -722,7 +722,7 @@ body.show-notes .notes-toggle{background:var(--todo);color:#000;border-color:var
 <!-- ============ STORY STATEMENT ============ -->
 <section class="statement" aria-label="Our story">
   <div class="wrap">
-    <p class="intro">Your product spends seconds on a shelf. <span class="hl">What’s printed on it does the selling.</span></p>
+    <p class="intro" data-reveal>Your product spends seconds on a shelf. What’s printed on it does the selling.</p>
     <div class="rule"></div>
     <div class="mark">
       <span class="logo-mark" role="img" aria-label="Insight Graphics"></span>
@@ -1386,7 +1386,7 @@ document.addEventListener('dragstart',e=>{if(e.target.tagName==='IMG') e.prevent
   wrap.addEventListener('dragstart',e=>e.preventDefault());
 })();
 
-// scroll-reveal statement: words light up as the paragraph moves up the viewport
+// scroll-reveal statement: words light up as each [data-reveal] line moves up the viewport
 (function(){
   document.querySelectorAll('[data-reveal]').forEach(el=>{
     el.innerHTML=el.textContent.trim().split(/\s+/).map(w=>'<span class="w">'+w+'</span>').join(' ');
@@ -1401,7 +1401,7 @@ document.addEventListener('dragstart',e=>{if(e.target.tagName==='IMG') e.prevent
     addEventListener('scroll',update,{passive:true}); addEventListener('resize',update); update();
   });
 })();
-// quote form (wireframe: validates and shows a thank-you; no backend yet)
+// quote form: validates, then sends through FormSubmit (email fallback if it is unreachable)
 (function(){
   const f=document.getElementById('quoteForm'); if(!f) return;
   f.addEventListener('submit',e=>{
