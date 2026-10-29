@@ -222,7 +222,7 @@ html.menu-open{overflow:hidden}
 footer .logo-mark{height:22px}
 
 /* ---------- hero (Figma 38-859 / 39-859) ---------- */
-.hero .blob{min-height:min(915px,calc(100svh - 72px - 2 * var(--frame)));display:flex;align-items:center;background:#3f5cb4}
+.hero .blob{min-height:87vh;min-height:87svh;display:flex;align-items:center;background:#3f5cb4}
 /* blue / teal / green / purple wash, per the Figma hero */
 .hero .blob::before{inset:-10%;filter:blur(60px);background:
     radial-gradient(40% 55% at 0% 10%,#345ec8,transparent 75%),
@@ -235,7 +235,7 @@ footer .logo-mark{height:22px}
 .pill[hidden]{display:none}
 /* display serif for the hero + "creative eye" titles (Figma 39-859: Trust 3A from Adobe Fonts kit qra4jbr; Newsreader is the fallback) */
 .t-serif{font-family:"trust-3a","Trust 3A","Newsreader",Georgia,serif;font-weight:400;letter-spacing:-.2px}
-.hero-grid{display:grid;grid-template-columns:1fr 442px;gap:114px;align-items:center;width:100%;padding-top:140px;padding-bottom:168px}
+.hero-grid{display:grid;grid-template-columns:1fr 442px;gap:114px;align-items:center;width:100%;padding-top:48px;padding-bottom:48px}
 .hero-grid h1{margin-top:28px;font-size:48px;line-height:54px}
 .hero-grid .lede{margin-top:5px;max-width:30em;font-size:16px;line-height:26.72px;color:rgba(255,255,255,.88)}
 .hero-actions{display:flex;gap:10px;margin-top:40px;flex-wrap:wrap}
@@ -243,7 +243,7 @@ footer .logo-mark{height:22px}
 .hero-media{margin:0;padding:12px;background:rgba(255,255,255,.11);border-radius:14px}
 /* hero gallery: crossfading slides with Chanawala-style progress bars */
 .hero-slides{display:grid;border-radius:10px;overflow:hidden}
-.hero-slides img{grid-area:1/1;display:block;width:100%;aspect-ratio:418/555;object-fit:cover;opacity:0;transform:scale(1.03);transition:opacity .7s ease,transform 1.2s ease}
+.hero-slides img{grid-area:1/1;display:block;width:100%;aspect-ratio:418/555;max-height:calc(87svh - 150px);object-fit:cover;opacity:0;transform:scale(1.03);transition:opacity .7s ease,transform 1.2s ease}
 .hero-slides img.on{opacity:1;transform:none}
 .hero-gallery{position:relative}
 .hero-ctrls{display:flex;align-items:center;justify-content:center;margin-top:14px}
@@ -582,7 +582,8 @@ body.show-notes .notes-toggle{background:var(--todo);color:#000;border-color:var
   .hero-arrow:hover{background:rgba(255,255,255,.2)}
   .hero-arrow .ic-uui{width:18px;height:18px}
   .hero-slides img{aspect-ratio:326/432}
-  .hero-gallery{justify-self:stretch;width:100%;max-width:none}   /* stacked layout: gallery fills the width, height follows the image ratio */
+  .hero-gallery{justify-self:stretch;width:100%;max-width:none}
+  .hero-slides img{max-height:none}   /* stacked layout: gallery fills the width, height follows the image ratio */
   .hero-grid .lede{margin-left:auto;margin-right:auto}
   .hero-actions{justify-content:center}
   .collage{max-width:360px}
