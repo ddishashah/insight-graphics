@@ -85,6 +85,8 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--fg);font:400 var(--body)/1.56 var(--font);font-optical-sizing:auto;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
+/* discourage saving photos: no image drag-out, no long-press save menu; clicks and hovers on cards are untouched */
+img{-webkit-user-drag:none;user-drag:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
 h1,h2,h3,h4{font-weight:500;letter-spacing:-.01em}
 h1{font-size:var(--h1);line-height:1.12;letter-spacing:-.01em}
 h2{font-size:var(--h2);line-height:1.14}
@@ -1242,6 +1244,10 @@ document.querySelectorAll('.scroller-ctrls[data-for]').forEach(ctrls=>{
     atEnd=end;
   },{passive:true});
 })();
+
+// discourage saving images: no right-click menu or drag-out on pictures (the card or link around them still works)
+document.addEventListener('contextmenu',e=>{if(e.target.closest('img,.ph,.hero-slides')) e.preventDefault();});
+document.addEventListener('dragstart',e=>{if(e.target.tagName==='IMG') e.preventDefault();});
 
 // in-page links: smooth scroll, then settle exactly on the section once images above have loaded
 (function(){
