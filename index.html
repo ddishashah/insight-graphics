@@ -399,8 +399,9 @@ footer .logo-mark{height:22px}
 /* ---------- logo wall ---------- */
 .wall .blob{padding:clamp(80px,10vw,140px) var(--gutter)}
 .wall h2{font-size:var(--h3);line-height:1.43;text-align:center;margin-bottom:32px}
-.wall-grid{max-width:860px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.wall-grid div{aspect-ratio:7/4;background:rgba(255,255,255,.14);border-radius:4px;display:grid;place-items:center;padding:0 18px}
+/* wrapping rows so a short last row sits centred */
+.wall-grid{--cols:4;max-width:860px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.wall-grid div{width:calc((100% - (var(--cols) - 1) * 8px) / var(--cols));aspect-ratio:7/4;background:rgba(255,255,255,.14);border-radius:4px;display:grid;place-items:center;padding:0 18px}
 
 /* ---------- testimonial ---------- */
 .story{background:var(--bg-deep)}
@@ -589,7 +590,7 @@ body.show-notes .notes-toggle{background:var(--todo);color:#000;border-color:var
   .collage{max-width:360px}
   .cap-left{position:static}
   .tech-grid{grid-template-columns:1fr 1fr}
-  .wall-grid{grid-template-columns:repeat(3,1fr)}
+  .wall-grid{--cols:3}
   .quote{grid-template-columns:1fr;gap:40px}
   .rpet{grid-template-columns:1fr;gap:40px}
   .rpet .ph{justify-self:start}
@@ -604,7 +605,7 @@ body.show-notes .notes-toggle{background:var(--todo);color:#000;border-color:var
   .marquee-track .lg{height:calc(var(--lh) * .72)}
   .industries,.svc-cards{grid-template-columns:1fr}
   .tech-facts,.f-grid{grid-template-columns:1fr}
-  .wall-grid{grid-template-columns:repeat(2,1fr)}
+  .wall-grid{--cols:2}
   .tech-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:78vw;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
     margin:0 calc(-1 * var(--gutter));padding:0 var(--gutter) 4px;scroll-padding-left:var(--gutter)}
   .tech-grid::-webkit-scrollbar{display:none}
