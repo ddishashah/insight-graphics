@@ -25,7 +25,10 @@ LOGOS = {
     'kitply':           'site-kitply.png',
     'bengal-chemicals': 'wiki-Bengal-Chemicals--Pharmaceuticals-Ltd.-logo.jpg',
     'boroline':         'site-boroline.png',
-    'lafarge':          'commons-Lafarge-Unternehmen-logo.svg',
+    'ifb-agro':         'site-ifb-agro.svg',
+    'pernod-ricard':    'commons-Pernod-Ricard-logo-2019.svg',
+    'strassenburg':     'site-strassenburg.png',
+    'albert-david':     'site-albert-david.png',   # only a 144px file on albertdavidindia.com; replace with a better source when one turns up
 }
 
 MAX_W, MAX_H = 1400, 360
