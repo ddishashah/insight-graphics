@@ -1410,7 +1410,13 @@ document.querySelectorAll('.scroller-ctrls[data-for]').forEach(ctrls=>{
         done.textContent='Thanks, we’ve got your requirement. We’ll call you within one working day.';
         done.hidden=false; f.reset();
       })
-      .catch(()=>{done.textContent='Sorry, that didn’t go through. Please call +91 98300 69416 or email contact@insightgraphics.in.'; done.hidden=false;})
+      .catch(()=>{
+        // the form service is unreachable: hand the same details to the visitor's email app so the enquiry still arrives
+        const lines=[...new FormData(f)].filter(([k,v])=>!k.startsWith('_')&&typeof v==='string'&&v.trim()).map(([k,v])=>k[0].toUpperCase()+k.slice(1)+': '+v);
+        const href='mailto:contact@insightgraphics.in?cc=insightgraphics99@gmail.com&subject='+encodeURIComponent('Quote request from insightgraphics.in')+'&body='+encodeURIComponent(lines.join('\n'));
+        done.innerHTML='Our form is having trouble right now. <a href="'+href+'" style="text-decoration:underline">Send by email instead</a> (your details are filled in), or call <a href="tel:+919830069416" style="text-decoration:underline">+91 98300 69416</a>.';
+        done.hidden=false;
+      })
       .finally(()=>{btn.disabled=false; btn.textContent=label;});
   });
   f.addEventListener('input',e=>{const l=e.target.closest('.f'); if(l&&e.target.value.trim()) l.classList.remove('err');});
