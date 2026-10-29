@@ -581,13 +581,14 @@ body.show-notes .notes-toggle{background:var(--todo);color:#000;border-color:var
   .hero-grid h1{font-size:40px;line-height:44px}
   .hero-grid .lede{font-size:18px;line-height:28px}
   .hero-media{padding:8px}
+  .hero-gallery{max-width:none}   /* phones: gallery fills the width, height follows the image ratio */
   /* Chanawala mobile: prev and next sit at either end of the progress row, under the card */
   .hero-ctrls{justify-content:space-between;margin-top:16px}
   .hero-arrow,.hero-arrow[data-dir="-1"]{position:static;width:40px;height:40px;border-radius:50%;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);box-shadow:0 7px 12px rgba(35,30,60,.08)}
   .hero-arrow:hover{background:rgba(255,255,255,.2)}
   .hero-arrow .ic-uui{width:18px;height:18px}
   .hero-slides img{aspect-ratio:326/432}
-  .hero-gallery{justify-self:stretch;width:100%;max-width:none}
+  .hero-gallery{justify-self:center;width:100%;max-width:560px}   /* tablets: capped so the portrait gallery isn't towering */
   .hero-slides img{max-height:none}   /* stacked layout: gallery fills the width, height follows the image ratio */
   .hero-grid .lede{margin-left:auto;margin-right:auto}
   .hero-actions{justify-content:center}
