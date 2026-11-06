@@ -329,8 +329,9 @@ footer .logo-mark{height:22px}
 .offer-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:40px}
 .offer-head .lead{margin-top:12px;max-width:34em}
 .offer-track{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(280px,30vw,384px);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;
-  padding:4px var(--gutter) 12px max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter)));
-  scroll-padding-left:max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter)));scrollbar-width:none}
+  --inset:max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter)));   /* same edge as the .wrap content */
+  padding:4px var(--inset) 12px var(--inset);
+  scroll-padding-inline:var(--inset);scrollbar-width:none}
 .offer-track::-webkit-scrollbar{display:none}
 .offer-card{scroll-snap-align:start;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--card-line);border-radius:16px;padding:8px;
   transition:transform .2s ease,border-color .2s ease}
